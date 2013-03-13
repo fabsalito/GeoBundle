@@ -1,0 +1,4 @@
+GeoBundle
+=========
+
+Geo localization bundle
