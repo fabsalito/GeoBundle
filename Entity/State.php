@@ -23,9 +23,14 @@ class State
     private $id;
 
     /*
-     * @ORM\ManyToOne(targetEntity="fabsalito\GeoBundle\Entity\Country")
+     * @ORM\ManyToOne(targetEntity="fabsalito\GeoBundle\Entity\Country" )
      */
     private $country_id;
+
+    /*
+     * @ORM\OneToMany(targetEntity="fabsalito\GeoBundle\Entity\City" mappedBy="state")
+     */
+    private $cities;
 
     /**
      * @var string $state
@@ -93,6 +98,15 @@ class State
     public function __toString()
     {
         return $this->getState();
+    }
+
+    /**
+     * Constructor
+     *
+     */
+    public function __construct()
+    {
+        $this->cities = new ArrayCollection();
     }
 
     /**
